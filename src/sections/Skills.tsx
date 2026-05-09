@@ -2,58 +2,76 @@ import { motion } from 'framer-motion';
 import { PORTFOLIO_CONFIG } from '../constants/config';
 
 export function Skills() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
+  // Group skills by category
+  const categories = [...new Set(PORTFOLIO_CONFIG.skills.map(s => s.category))];
 
   return (
-    <section id="skills" className="section relative bg-bg-secondary/50">
+    <section id="skills" className="section">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
+          <p className="section-label">// what I know</p>
           <h2 className="section-title">
-            <span className="text-gradient">02.</span> Technical Skills
+            Technical <span className="text-gradient">Skills</span>
           </h2>
+          <p className="section-subtitle">
+            Technologies and tools I've been working with recently.
+          </p>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-          >
-            {PORTFOLIO_CONFIG.skills.map((skill, index) => (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+            {categories.map((category, catIndex) => (
               <motion.div
-                key={index}
-                variants={itemVariants}
-                className="glass-panel p-6 flex flex-col items-center justify-center gap-4 group cursor-default"
+                key={category}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: catIndex * 0.1, duration: 0.5 }}
               >
-                <div className="text-4xl group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300">
-                  {skill.icon}
-                </div>
-                <div className="text-center">
-                  <h3 className="font-medium text-text-primary">{skill.name}</h3>
-                  <p className="text-sm text-text-secondary mt-1">{skill.category}</p>
+                <h3 style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: '0.8rem',
+                  fontWeight: 500,
+                  color: 'var(--accent-tertiary)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
+                  marginBottom: '20px',
+                  paddingBottom: '12px',
+                  borderBottom: '1px solid var(--glass-border)',
+                }}>
+                  {category}
+                </h3>
+
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                  gap: '12px',
+                }}>
+                  {PORTFOLIO_CONFIG.skills
+                    .filter(s => s.category === category)
+                    .map((skill, i) => (
+                      <motion.div
+                        key={skill.name}
+                        className="skill-badge"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05, duration: 0.3 }}
+                      >
+                        <span className="skill-icon">{skill.icon}</span>
+                        <div className="skill-info">
+                          <div className="skill-name">{skill.name}</div>
+                          <div className="skill-category">{skill.category}</div>
+                        </div>
+                      </motion.div>
+                    ))}
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

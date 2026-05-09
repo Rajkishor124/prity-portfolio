@@ -8,9 +8,8 @@ import { Contact } from './sections/Contact';
 
 function App() {
   return (
-    <div className="bg-bg-primary text-text-primary min-h-screen selection:bg-accent-primary selection:text-white">
+    <>
       <Navbar />
-      
       <main>
         <Hero />
         <About />
@@ -19,7 +18,7 @@ function App() {
         <Timeline />
         <Contact />
       </main>
-    </div>
+    </>
   );
 }
 

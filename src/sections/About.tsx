@@ -1,40 +1,95 @@
 import { motion } from 'framer-motion';
 import { PORTFOLIO_CONFIG } from '../constants/config';
+import { MapPin, Sparkles } from 'lucide-react';
 
 export function About() {
   return (
-    <section id="about" className="section relative">
+    <section id="about" className="section" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
+          <p className="section-label">// about me</p>
           <h2 className="section-title">
-            <span className="text-gradient">01.</span> About Me
+            Get to Know <span className="text-gradient">Me</span>
           </h2>
+          <p className="section-subtitle">
+            A passionate developer who loves turning ideas into reality through code.
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-lg text-text-secondary leading-relaxed">
-              <p>
-                Hello! My name is {PORTFOLIO_CONFIG.name} and I enjoy creating things that live on the internet. My interest in web development started back when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS taught me a lot about HTML & CSS!
-              </p>
-              <p>
-                {PORTFOLIO_CONFIG.bio}
-              </p>
-              <p>
-                Whether I'm working on frontend interfaces or backend systems, I strive to deliver high-quality code and exceptional user experiences.
-              </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '40px',
+            alignItems: 'start',
+          }}>
+            {/* Bio Column */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              <div className="glass-panel-static" style={{ padding: '32px' }}>
+                <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.95rem' }}>
+                  Hello! I'm <strong style={{ color: 'var(--text-primary)' }}>{PORTFOLIO_CONFIG.name}</strong>, 
+                  a Computer Science undergraduate passionate about Data Analytics and AI/ML. I have good knowledge 
+                  of Python, SQL, and problem-solving.
+                </p>
+                <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginTop: '16px', fontSize: '0.95rem' }}>
+                  I'm comfortable working with data, databases, and backend development concepts. Currently, I'm 
+                  improving my analytical and technical skills through projects and continuous learning.
+                </p>
+              </div>
+
+              {/* Location Badge */}
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: '10px',
+                padding: '14px 20px', borderRadius: '14px',
+                background: 'var(--glass-bg)', border: '1px solid var(--glass-border)',
+              }}>
+                <MapPin size={18} style={{ color: 'var(--accent-secondary)' }} />
+                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                  {PORTFOLIO_CONFIG.location}
+                </span>
+              </div>
             </div>
 
-            <div className="relative group mx-auto md:mx-0 max-w-sm w-full">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
-              <div className="relative glass-panel p-8 aspect-square flex flex-col items-center justify-center rounded-2xl overflow-hidden">
-                {/* Fallback avatar if no image */}
-                <img src="/logo.png" alt="Profile" className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" />
-
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent-primary/30 rounded-2xl transition-colors duration-500" />
+            {/* Learning & Growth Column */}
+            <div className="glass-panel-static" style={{ padding: '32px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
+                <Sparkles size={20} style={{ color: 'var(--accent-warm)' }} />
+                <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '1.2rem', fontWeight: 700 }}>
+                  Learning & Growth
+                </h3>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {PORTFOLIO_CONFIG.learning.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * i, duration: 0.4 }}
+                    style={{
+                      display: 'flex', alignItems: 'flex-start', gap: '12px',
+                      padding: '14px 18px', borderRadius: '12px',
+                      background: 'rgba(139, 92, 246, 0.04)',
+                      border: '1px solid rgba(139, 92, 246, 0.08)',
+                      transition: 'all 0.3s ease',
+                    }}
+                    whileHover={{
+                      x: 4,
+                      backgroundColor: 'rgba(139, 92, 246, 0.08)',
+                    }}
+                  >
+                    <span style={{
+                      width: '6px', height: '6px', borderRadius: '50%',
+                      background: 'var(--accent-primary)', marginTop: '8px', flexShrink: 0,
+                    }} />
+                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                      {item}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>

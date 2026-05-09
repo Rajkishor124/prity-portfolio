@@ -1,45 +1,40 @@
 import { motion } from 'framer-motion';
 import { PORTFOLIO_CONFIG } from '../constants/config';
-import { GraduationCap } from 'lucide-react';
 
 export function Timeline() {
   return (
-    <section id="experience" className="section relative bg-bg-secondary/30">
-      <div className="container max-w-4xl">
+    <section id="education" className="section">
+      <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
+          <p className="section-label">// my journey</p>
           <h2 className="section-title">
-            <span className="text-gradient">04.</span> Experience & Education
+            Education & <span className="text-gradient">Timeline</span>
           </h2>
+          <p className="section-subtitle">
+            My academic journey and milestones along the way.
+          </p>
 
-          <div className="relative border-l border-glass-border ml-4 md:ml-0 md:pl-0">
-            {PORTFOLIO_CONFIG.education.map((item, index) => (
+          <div className="timeline">
+            {PORTFOLIO_CONFIG.education.map((item, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
+                key={i}
+                className="timeline-item"
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="mb-10 ml-8 relative"
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.5 }}
               >
-                <span className="absolute -left-12 flex items-center justify-center w-8 h-8 rounded-full bg-bg-secondary border border-accent-primary text-accent-primary z-10">
-                  <GraduationCap size={16} />
-                </span>
-                
-                <div className="glass-panel p-6">
-                  <span className="text-sm font-medium text-accent-secondary mb-2 block">
-                    {item.year}
-                  </span>
-                  <h3 className="text-xl font-bold mb-2 text-text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="text-text-secondary">
-                    {item.description}
-                  </p>
+                <div className="timeline-dot" />
+                <div className="timeline-content">
+                  <div className="timeline-year">{item.year}</div>
+                  <h3 className="timeline-title">{item.title}</h3>
+                  <p className="timeline-institution">{item.institution}</p>
+                  <p className="timeline-desc">{item.description}</p>
                 </div>
               </motion.div>
             ))}
