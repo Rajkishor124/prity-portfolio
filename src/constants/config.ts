@@ -2,14 +2,14 @@ export const PORTFOLIO_CONFIG = {
   name: "Prity Kumari",
   role: "AI/ML Enthusiast | Data Analyst | Problem Solver",
   bio: "Computer Science undergraduate passionate about Data Analytics and AI/ML, with good knowledge of Python, SQL, and problem-solving. Comfortable working with data, databases, and backend development concepts. Currently improving analytical and technical skills through projects and continuous learning.",
-  githubUsername: "Rajkishor124",
+  githubUsername: "Prity-Kumari398",
   contactEmail: "pritykumari09748@gmail.com",
   phone: "+91-6202430103",
   location: "Ranchi, Jharkhand",
   socialLinks: {
-    github: "https://github.com/Rajkishor124",
-    linkedin: "https://linkedin.com",
-    leetcode: "https://leetcode.com",
+    github: "https://github.com/Prity-Kumari398",
+    linkedin: "https://www.linkedin.com/in/prity-kumari-4b9baa306/",
+    leetcode: "https://leetcode.com/u/prity_kumari2/",
   },
   skills: [
     { name: "Python", category: "Languages", icon: "🐍" },

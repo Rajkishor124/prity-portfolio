@@ -35,120 +35,191 @@ export function Hero() {
       }} />
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        <div style={{ maxWidth: '800px' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px 20px',
-              borderRadius: '100px',
-              background: 'rgba(139, 92, 246, 0.08)',
-              border: '1px solid rgba(139, 92, 246, 0.15)',
-              marginBottom: '32px',
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '0.85rem',
-              color: 'var(--accent-primary)',
-            }}
-          >
-            <span style={{
-              width: '8px', height: '8px', borderRadius: '50%',
-              background: '#22c55e',
-              boxShadow: '0 0 12px rgba(34, 197, 94, 0.5)',
-              animation: 'pulse-glow 2s ease-in-out infinite',
-            }} />
-            Available for opportunities
-          </motion.div>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '40px',
+          flexWrap: 'wrap-reverse'
+        }}>
+          {/* Text Column */}
+          <div style={{ flex: '1 1 500px', maxWidth: '800px' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 20px',
+                borderRadius: '100px',
+                background: 'rgba(139, 92, 246, 0.08)',
+                border: '1px solid rgba(139, 92, 246, 0.15)',
+                marginBottom: '32px',
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '0.85rem',
+                color: 'var(--accent-primary)',
+              }}
+            >
+              <span style={{
+                width: '8px', height: '8px', borderRadius: '50%',
+                background: '#22c55e',
+                boxShadow: '0 0 12px rgba(34, 197, 94, 0.5)',
+                animation: 'pulse-glow 2s ease-in-out infinite',
+              }} />
+              Available for opportunities
+            </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            style={{
-              fontSize: 'clamp(2.5rem, 7vw, 5rem)',
-              fontWeight: 800,
-              lineHeight: 1.05,
-              marginBottom: '24px',
-              letterSpacing: '-0.03em',
-            }}
-          >
-            Hi, I'm{' '}
-            <span className="text-gradient">{PORTFOLIO_CONFIG.name}</span>
-            <br />
-            <span style={{ color: 'var(--text-secondary)', fontSize: '0.65em', fontWeight: 600 }}>
-              {PORTFOLIO_CONFIG.role}
-            </span>
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              style={{
+                fontSize: 'clamp(2.5rem, 7vw, 5rem)',
+                fontWeight: 800,
+                lineHeight: 1.05,
+                marginBottom: '24px',
+                letterSpacing: '-0.03em',
+              }}
+            >
+              Hi, I'm{' '}
+              <span className="text-gradient">{PORTFOLIO_CONFIG.name}</span>
+              <br />
+              <span style={{ color: 'var(--text-secondary)', fontSize: '0.65em', fontWeight: 600 }}>
+                {PORTFOLIO_CONFIG.role}
+              </span>
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            style={{
-              fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-              color: 'var(--text-secondary)',
-              maxWidth: '600px',
-              lineHeight: 1.8,
-              marginBottom: '40px',
-            }}
-          >
-            {PORTFOLIO_CONFIG.bio}
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{
+                fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                color: 'var(--text-secondary)',
+                maxWidth: '600px',
+                lineHeight: 1.8,
+                marginBottom: '40px',
+              }}
+            >
+              {PORTFOLIO_CONFIG.bio}
+            </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}
-          >
-            <a href="#projects" className="btn btn-primary">
-              View My Projects
-              <ArrowDown size={18} />
-            </a>
-            <a href="#contact" className="btn btn-outline">
-              <Mail size={18} />
-              Get In Touch
-            </a>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}
+            >
+              <a href="#projects" className="btn btn-primary">
+                View My Projects
+                <ArrowDown size={18} />
+              </a>
+              <a href="#contact" className="btn btn-outline">
+                <Mail size={18} />
+                Get In Touch
+              </a>
+            </motion.div>
 
-          {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            style={{
-              display: 'flex',
-              gap: '32px',
-              marginTop: '60px',
-              paddingTop: '32px',
-              borderTop: '1px solid var(--glass-border)',
-              flexWrap: 'wrap',
-            }}
-          >
-            {[
-              { icon: <Code2 size={18} />, label: 'Projects Built', value: '3+' },
-              { icon: <BookOpen size={18} />, label: 'Technologies', value: '10+' },
-            ].map((stat, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <div style={{
-                  width: '40px', height: '40px', borderRadius: '12px',
-                  background: 'var(--glass-bg)', border: '1px solid var(--glass-border)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--accent-primary)',
-                }}>
-                  {stat.icon}
-                </div>
-                <div>
-                  <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: '1.3rem' }}>
-                    {stat.value}
+            {/* Quick Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              style={{
+                display: 'flex',
+                gap: '32px',
+                marginTop: '60px',
+                paddingTop: '32px',
+                borderTop: '1px solid var(--glass-border)',
+                flexWrap: 'wrap',
+              }}
+            >
+              {[
+                { icon: <Code2 size={18} />, label: 'Projects Built', value: '3+' },
+                { icon: <BookOpen size={18} />, label: 'Technologies', value: '10+' },
+              ].map((stat, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{
+                    width: '40px', height: '40px', borderRadius: '12px',
+                    background: 'var(--glass-bg)', border: '1px solid var(--glass-border)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--accent-primary)',
+                  }}>
+                    {stat.icon}
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{stat.label}</div>
+                  <div>
+                    <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: '1.3rem' }}>
+                      {stat.value}
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{stat.label}</div>
+                  </div>
                 </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Image Column */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, type: 'spring' }}
+            style={{
+              flex: '1 1 300px',
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <div style={{
+              width: 'clamp(280px, 40vw, 400px)',
+              aspectRatio: '1/1',
+              position: 'relative',
+            }}>
+              {/* Decorative background glow */}
+              <div style={{
+                position: 'absolute',
+                inset: '-20px',
+                background: 'var(--gradient-primary)',
+                filter: 'blur(30px)',
+                opacity: 0.5,
+                borderRadius: '50%',
+                animation: 'pulse-glow 4s ease-in-out infinite alternate',
+              }} />
+              
+              {/* Image Container */}
+              <div style={{
+                width: '100%',
+                height: '100%',
+                borderRadius: '30px',
+                overflow: 'hidden',
+                border: '2px solid rgba(255, 255, 255, 0.1)',
+                position: 'relative',
+                zIndex: 2,
+                boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                transform: 'rotate(2deg)',
+                transition: 'transform 0.4s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'rotate(0deg) scale(1.02)';
+                e.currentTarget.style.border = '2px solid rgba(139, 92, 246, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'rotate(2deg) scale(1)';
+                e.currentTarget.style.border = '2px solid rgba(255, 255, 255, 0.1)';
+              }}
+              >
+                <img 
+                  src="/profile.png" 
+                  alt="Prity Kumari" 
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'cover',
+                  }} 
+                />
               </div>
-            ))}
+            </div>
           </motion.div>
         </div>
       </div>
