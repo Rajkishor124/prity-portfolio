@@ -56,8 +56,8 @@ export function Navbar() {
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{
-              width: '36px',
-              height: '36px',
+              width: '42px',
+              height: '42px',
               borderRadius: '10px',
               background: 'var(--gradient-primary)',
               display: 'flex',
@@ -65,10 +65,10 @@ export function Navbar() {
               justifyContent: 'center',
               fontFamily: "'Outfit', sans-serif",
               fontWeight: 800,
-              fontSize: '1.1rem',
+              fontSize: '1rem',
               color: 'white',
             }}>
-              P
+              PK
             </div>
             <span style={{
               fontFamily: "'Outfit', sans-serif",
@@ -76,7 +76,7 @@ export function Navbar() {
               fontSize: '1.2rem',
               letterSpacing: '-0.02em',
             }}>
-              {PORTFOLIO_CONFIG.name.split(' ')[0]}
+              {PORTFOLIO_CONFIG.name}
               <span style={{ color: 'var(--accent-primary)' }}>.</span>
             </span>
           </a>

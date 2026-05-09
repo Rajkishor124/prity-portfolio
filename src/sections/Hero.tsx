@@ -76,7 +76,7 @@ export function Hero() {
             }}
           >
             Hi, I'm{' '}
-            <span className="text-gradient">{PORTFOLIO_CONFIG.name.split(' ')[0]}</span>
+            <span className="text-gradient">{PORTFOLIO_CONFIG.name}</span>
             <br />
             <span style={{ color: 'var(--text-secondary)', fontSize: '0.65em', fontWeight: 600 }}>
               {PORTFOLIO_CONFIG.role}
