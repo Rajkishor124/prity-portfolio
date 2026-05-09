@@ -32,9 +32,8 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
               <div className="relative glass-panel p-8 aspect-square flex flex-col items-center justify-center rounded-2xl overflow-hidden">
                 {/* Fallback avatar if no image */}
-                <div className="text-8xl font-display font-bold text-gradient opacity-80 group-hover:scale-110 transition-transform duration-500">
-                  {PORTFOLIO_CONFIG.name.charAt(0)}
-                </div>
+                <img src="/logo.png" alt="Profile" className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" />
+
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent-primary/30 rounded-2xl transition-colors duration-500" />
               </div>
             </div>

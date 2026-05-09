@@ -36,8 +36,9 @@ export function Navbar() {
         }}
       >
         <div className="container flex items-center justify-between">
-          <a href="#" className="text-2xl font-display font-bold text-gradient">
-            {PORTFOLIO_CONFIG.name}.
+          <a href="#" className="flex items-center gap-3 text-2xl font-display font-bold">
+            <img src="/logo.png" alt="Logo" className="w-8 h-8 rounded-lg" />
+            <span className="text-gradient">{PORTFOLIO_CONFIG.name}.</span>
           </a>
 
           {/* Desktop Nav */}
