@@ -20,15 +20,10 @@ export function About() {
             A passionate developer who loves turning ideas into reality through code.
           </p>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '40px',
-            alignItems: 'start',
-          }}>
+          <div className="about-grid">
             {/* Bio Column */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div className="glass-panel-static" style={{ padding: '32px' }}>
+              <div className="glass-panel-static about-bio-panel">
                 <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.95rem' }}>
                   Hello! I'm <strong style={{ color: 'var(--text-primary)' }}>{PORTFOLIO_CONFIG.name}</strong>, 
                   a Computer Science undergraduate passionate about Data Analytics and AI/ML. I have good knowledge 
@@ -41,12 +36,8 @@ export function About() {
               </div>
 
               {/* Location Badge */}
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: '10px',
-                padding: '14px 20px', borderRadius: '14px',
-                background: 'var(--glass-bg)', border: '1px solid var(--glass-border)',
-              }}>
-                <MapPin size={18} style={{ color: 'var(--accent-secondary)' }} />
+              <div className="about-location-badge">
+                <MapPin size={18} style={{ color: 'var(--accent-secondary)', flexShrink: 0 }} />
                 <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
                   {PORTFOLIO_CONFIG.location}
                 </span>
@@ -54,9 +45,9 @@ export function About() {
             </div>
 
             {/* Learning & Growth Column */}
-            <div className="glass-panel-static" style={{ padding: '32px' }}>
+            <div className="glass-panel-static about-learning-panel">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
-                <Sparkles size={20} style={{ color: 'var(--accent-warm)' }} />
+                <Sparkles size={20} style={{ color: 'var(--accent-warm)', flexShrink: 0 }} />
                 <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '1.2rem', fontWeight: 700 }}>
                   Learning & Growth
                 </h3>
@@ -69,13 +60,7 @@ export function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * i, duration: 0.4 }}
-                    style={{
-                      display: 'flex', alignItems: 'flex-start', gap: '12px',
-                      padding: '14px 18px', borderRadius: '12px',
-                      background: 'rgba(139, 92, 246, 0.04)',
-                      border: '1px solid rgba(139, 92, 246, 0.08)',
-                      transition: 'all 0.3s ease',
-                    }}
+                    className="about-learning-item"
                     whileHover={{
                       x: 4,
                       backgroundColor: 'rgba(139, 92, 246, 0.08)',
@@ -95,6 +80,81 @@ export function About() {
           </div>
         </motion.div>
       </div>
+
+      <style>{`
+        .about-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+          gap: 40px;
+          align-items: start;
+        }
+
+        .about-bio-panel {
+          padding: 32px;
+        }
+
+        .about-location-badge {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 14px 20px;
+          border-radius: 14px;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+        }
+
+        .about-learning-panel {
+          padding: 32px;
+        }
+
+        .about-learning-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 14px 18px;
+          border-radius: 12px;
+          background: rgba(139, 92, 246, 0.04);
+          border: 1px solid rgba(139, 92, 246, 0.08);
+          transition: all 0.3s ease;
+        }
+
+        @media (max-width: 480px) {
+          .about-grid {
+            gap: 24px;
+          }
+
+          .about-bio-panel,
+          .about-learning-panel {
+            padding: 20px;
+          }
+
+          .about-bio-panel p,
+          .about-learning-item span:last-child {
+            font-size: 0.88rem !important;
+          }
+
+          .about-location-badge {
+            padding: 12px 16px;
+            border-radius: 12px;
+          }
+
+          .about-learning-item {
+            padding: 12px 14px;
+            gap: 10px;
+          }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+          .about-grid {
+            gap: 28px;
+          }
+
+          .about-bio-panel,
+          .about-learning-panel {
+            padding: 24px;
+          }
+        }
+      `}</style>
     </section>
   );
 }

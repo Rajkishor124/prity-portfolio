@@ -20,11 +20,7 @@ export function Projects() {
             A collection of projects showcasing my skills in Python, AI/ML, and Data Analytics.
           </p>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-            gap: '24px',
-          }}>
+          <div className="projects-grid">
             {PORTFOLIO_CONFIG.projects.map((project, i) => (
               <motion.div
                 key={project.title}
@@ -60,21 +56,7 @@ export function Projects() {
                   <div style={{ marginTop: '20px' }}>
                     <a
                       href={project.link}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        fontSize: '0.85rem',
-                        fontWeight: 600,
-                        color: 'var(--accent-primary)',
-                        transition: 'all 0.3s ease',
-                      }}
-                      onMouseEnter={e => {
-                        (e.currentTarget as HTMLElement).style.gap = '12px';
-                      }}
-                      onMouseLeave={e => {
-                        (e.currentTarget as HTMLElement).style.gap = '8px';
-                      }}
+                      className="project-link"
                     >
                       View Project <ExternalLink size={16} />
                     </a>
@@ -85,6 +67,50 @@ export function Projects() {
           </div>
         </motion.div>
       </div>
+
+      <style>{`
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+          gap: 24px;
+        }
+
+        .project-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--accent-primary);
+          transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+          gap: 12px;
+          color: var(--accent-secondary);
+        }
+
+        @media (max-width: 480px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .projects-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+          }
+        }
+      `}</style>
     </section>
   );
 }

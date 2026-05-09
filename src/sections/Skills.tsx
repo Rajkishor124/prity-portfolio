@@ -31,25 +31,11 @@ export function Skills() {
                 viewport={{ once: true }}
                 transition={{ delay: catIndex * 0.1, duration: 0.5 }}
               >
-                <h3 style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: '0.8rem',
-                  fontWeight: 500,
-                  color: 'var(--accent-tertiary)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.12em',
-                  marginBottom: '20px',
-                  paddingBottom: '12px',
-                  borderBottom: '1px solid var(--glass-border)',
-                }}>
+                <h3 className="skills-category-header">
                   {category}
                 </h3>
 
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                  gap: '12px',
-                }}>
+                <div className="skills-grid">
                   {PORTFOLIO_CONFIG.skills
                     .filter(s => s.category === category)
                     .map((skill, i) => (
@@ -74,6 +60,46 @@ export function Skills() {
           </div>
         </motion.div>
       </div>
+
+      <style>{`
+        .skills-category-header {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: var(--accent-tertiary);
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          margin-bottom: 20px;
+          padding-bottom: 12px;
+          border-bottom: 1px solid var(--glass-border);
+        }
+
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+          gap: 12px;
+        }
+
+        @media (max-width: 480px) {
+          .skills-grid {
+            grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+            gap: 10px;
+          }
+
+          .skills-category-header {
+            font-size: 0.72rem;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+          }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+          .skills-grid {
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+          }
+        }
+      `}</style>
     </section>
   );
 }
